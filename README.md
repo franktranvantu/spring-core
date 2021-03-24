@@ -1,1 +1,1 @@
-# Bean Definition
+# Bean Scopes
