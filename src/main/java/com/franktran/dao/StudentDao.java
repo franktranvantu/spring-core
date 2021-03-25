@@ -25,11 +25,11 @@ public class StudentDao {
     }
 
     public void createTableStudent() {
-        String sql = "CREATE TABLE IF NOT EXISTS student(\n" +
-                "    id   INT NOT NULL AUTO_INCREMENT,\n" +
-                "    name VARCHAR(20) NOT NULL,\n" +
-                "    age  INT NOT NULL,\n" +
-                "    PRIMARY KEY (ID)\n" +
+        String sql = "CREATE TABLE student(" +
+                "    id   INT NOT NULL AUTO_INCREMENT," +
+                "    name VARCHAR(20) NOT NULL," +
+                "    age  INT NOT NULL," +
+                "    PRIMARY KEY (ID)" +
                 ")";
         jdbcTemplate.execute(sql);
     }
