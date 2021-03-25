@@ -9,19 +9,19 @@ import org.springframework.context.annotation.PropertySource;
 import javax.sql.DataSource;
 
 @Configuration
-@PropertySource("datasource.properties")
+@PropertySource("classpath:datasource.properties")
 public class DataSourceConfig {
 
   private final String host;
-  private final String user;
+  private final String username;
   private final String password;
 
   public DataSourceConfig(
           @Value("${host}") String host,
-          @Value("${user}") String user,
+          @Value("${username}") String username,
           @Value("${password}") String password) {
     this.host = host;
-    this.user = user;
+    this.username = username;
     this.password = password;
   }
 
@@ -30,7 +30,7 @@ public class DataSourceConfig {
     String URL = String.format("jdbc:mysql://%s:3306/spring_core", host);
     BasicDataSource dataSource = new BasicDataSource();
     dataSource.setUrl(URL);
-    dataSource.setUsername(user);
+    dataSource.setUsername(username);
     dataSource.setPassword(password);
     return dataSource;
   }
