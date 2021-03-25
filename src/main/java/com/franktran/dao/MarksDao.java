@@ -25,10 +25,10 @@ public class MarksDao {
     }
 
     public void createTableMarks() {
-        String sql = "CREATE TABLE marks(\n" +
-                "   student_id INT NOT NULL,\n" +
-                "   marks  INT NOT NULL,\n" +
-                "   years   INT NOT NULL\n" +
+        String sql = "CREATE TABLE marks(" +
+                "   student_id INT NOT NULL," +
+                "   marks  INT NOT NULL," +
+                "   years   INT NOT NULL" +
                 ");";
         jdbcTemplate.execute(sql);
     }
