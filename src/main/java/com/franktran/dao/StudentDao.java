@@ -2,9 +2,14 @@ package com.franktran.dao;
 
 import com.franktran.mapper.StudentMapper;
 import com.franktran.model.Student;
+import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -36,6 +41,28 @@ public class StudentDao {
     public int insertStudent(Student student) {
         String sql = "INSERT INTO student (name, age) VALUES (?, ?)";
         return jdbcTemplate.update(sql, new Object[]{student.getName(), student.getAge()});
+    }
+
+    public int insertMultipleStudents(Student student1, Student student2) {
+        try (Connection connection = jdbcTemplate.getDataSource().getConnection()) {
+            connection.setAutoCommit(false);
+            String sql = "INSERT INTO student (name, age) VALUES (?, ?)";
+            jdbcTemplate.update(sql, new Object[]{student1.getName(), student1.getAge()});
+            int a = 1/0;
+            jdbcTemplate.update(sql, new Object[]{student2.getName(), student2.getAge()});
+            connection.commit();
+            return 2;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    public int[] insertStudents(List<Student> students) {
+        String sql = "INSERT INTO student (name, age) VALUES (?, ?)";
+        List<Object[]> params = new ArrayList<>();
+        students.stream().forEach(student -> params.add(new Object[]{student.getName(), student.getAge()}));
+        return jdbcTemplate.batchUpdate(sql, params);
     }
 
     public int updateStudent(Student student) {

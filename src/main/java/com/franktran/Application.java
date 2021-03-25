@@ -15,23 +15,11 @@ public class Application {
     studentDao.dropTableStudent();
     studentDao.createTableStudent();
 
-    studentDao.insertStudent(new Student("Frank", 28));
-    studentDao.insertStudent(new Student("Henry", 34));
-    studentDao.insertStudent(new Student("Bean", 34));
+    studentDao.insertMultipleStudents(
+            new Student("Frank", 28),
+            new Student("Henry", 34)
+    );
     System.out.println("Select all students:");
     studentDao.selectAllStudents().stream().forEach(System.out::println);
-
-
-    Student henry = studentDao.selectStudentByName("Henry");
-    henry.setAge(40);
-    studentDao.updateStudent(henry);
-    System.out.println("Update henry's age:");
-    studentDao.selectAllStudents().stream().forEach(System.out::println);
-
-    Student bean = studentDao.selectStudentByName("Bean");
-    studentDao.deleteStudent(bean.getId());
-    System.out.println("Delete student bean:");
-    studentDao.selectAllStudents().stream().forEach(System.out::println);
-
   }
 }
