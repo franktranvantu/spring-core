@@ -15,9 +15,9 @@ public class Application {
     studentDao.dropTableStudent();
     studentDao.createTableStudent();
 
-    studentDao.insertStudent(new Student("Frank", 28));
-    studentDao.insertStudent(new Student("Henry", 34));
-    studentDao.insertStudent(new Student("Bean", 34));
+    studentDao.insertStudent(new Student(1, "Frank", 28));
+    studentDao.insertStudent(new Student(2, "Henry", 34));
+    studentDao.insertStudent(new Student(3, "Bean", 34));
     System.out.println("Select all students:");
     studentDao.selectAllStudents().stream().forEach(System.out::println);
 
