@@ -26,21 +26,21 @@ public class StudentDao {
 
     public void createTableStudent() {
         String sql = "CREATE TABLE student(" +
-                "    student_id INT NOT NULL," +
+                "    id INT NOT NULL," +
                 "    name VARCHAR(20) NOT NULL," +
                 "    age  INT NOT NULL," +
-                "    PRIMARY KEY (student_id)" +
+                "    PRIMARY KEY (id)" +
                 ")";
         jdbcTemplate.execute(sql);
     }
 
     public int insertStudent(Student student) {
-        String sql = "INSERT INTO student (student_id, name, age) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO student (id, name, age) VALUES (?, ?, ?)";
         return jdbcTemplate.update(sql, new Object[]{student.getId(), student.getName(), student.getAge()});
     }
 
     public int[] insertStudents(List<Student> students) {
-        String sql = "INSERT INTO student (student_id, name, age) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO student (id, name, age) VALUES (?, ?, ?)";
         List<Object[]> params = new ArrayList<>();
         students.stream().forEach(student -> params.add(new Object[]{student.getId(), student.getName(), student.getAge()}));
         return jdbcTemplate.batchUpdate(sql, params);
