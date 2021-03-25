@@ -1,11 +1,13 @@
 package com.franktran.config;
 
+import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
+
+import javax.sql.DataSource;
 
 @Configuration
 @PropertySource("datasource.properties")
@@ -25,10 +27,13 @@ public class JdbcConfig {
   }
 
   @Bean
-  public DriverManagerDataSource dataSource() {
+  public DataSource dataSource() {
     String URL = String.format("jdbc:mysql://%s:3306/spring_core", host);
-
-    return new DriverManagerDataSource(URL, user, password);
+    BasicDataSource dataSource = new BasicDataSource();
+    dataSource.setUrl(URL);
+    dataSource.setUsername(user);
+    dataSource.setPassword(password);
+    return dataSource;
   }
 
   @Bean
