@@ -5,6 +5,7 @@ import com.franktran.model.Student;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -36,6 +37,13 @@ public class StudentDao {
     public int insertStudent(Student student) {
         String sql = "INSERT INTO student (name, age) VALUES (?, ?)";
         return jdbcTemplate.update(sql, new Object[]{student.getName(), student.getAge()});
+    }
+
+    public int[] insertStudents(List<Student> students) {
+        String sql = "INSERT INTO student (name, age) VALUES (?, ?)";
+        List<Object[]> params = new ArrayList<>();
+        students.stream().forEach(student -> params.add(new Object[]{student.getName(), student.getAge()}));
+        return jdbcTemplate.batchUpdate(sql, params);
     }
 
     public int updateStudent(Student student) {
