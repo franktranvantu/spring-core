@@ -25,7 +25,7 @@ public class StudentDao {
     }
 
     public void createTableStudent() {
-        String sql = "CREATE TABLE IF NOT EXISTS student(\n" +
+        String sql = "CREATE TABLE student(\n" +
                 "    id   INT NOT NULL AUTO_INCREMENT,\n" +
                 "    name VARCHAR(20) NOT NULL,\n" +
                 "    age  INT NOT NULL,\n" +
