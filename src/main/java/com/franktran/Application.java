@@ -1,6 +1,7 @@
 package com.franktran;
 
-import com.franktran.dao.CommonDao;
+import com.franktran.dao.DeclarativeDao;
+import com.franktran.dao.ProgrammaticDao;
 import com.franktran.model.Marks;
 import com.franktran.model.Student;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -12,9 +13,10 @@ public class Application {
   public static void main(String[] args) {
     AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Application.class);
 
-    CommonDao commonDao = context.getBean("commonDao", CommonDao.class);
-    Student frank = new Student(2, "Frank", 20);
-    Marks marks = new Marks(2, 8, 2021);
-    commonDao.insertStudentAndMarks(frank, marks);
+//    ProgrammaticDao programmaticDao = context.getBean("programmaticDao", ProgrammaticDao.class);
+    DeclarativeDao declarativeDao = context.getBean("declarativeDao", DeclarativeDao.class);
+    Student frank = new Student(4, "Henry", 20);
+    Marks marks = new Marks(4, 9, 2021);
+    declarativeDao.insertStudentAndMarks(frank, marks);
   }
 }

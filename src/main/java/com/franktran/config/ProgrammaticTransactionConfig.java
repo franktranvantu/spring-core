@@ -6,11 +6,11 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
 
 @Configuration
-public class TransactionConfig {
+public class ProgrammaticTransactionConfig {
 
     private final DataSourceConfig dataSourceConfig;
 
-    public TransactionConfig(DataSourceConfig dataSourceConfig) {
+    public ProgrammaticTransactionConfig(DataSourceConfig dataSourceConfig) {
         this.dataSourceConfig = dataSourceConfig;
     }
 

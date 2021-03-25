@@ -10,13 +10,13 @@ import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
 
 @Component
-public class CommonDao {
+public class ProgrammaticDao {
 
     private final PlatformTransactionManager transactionManager;
     private final StudentDao studentDao;
     private final MarksDao marksDao;
 
-    public CommonDao(PlatformTransactionManager transactionManager, StudentDao studentDao, MarksDao marksDao) {
+    public ProgrammaticDao(PlatformTransactionManager transactionManager, StudentDao studentDao, MarksDao marksDao) {
         this.transactionManager = transactionManager;
         this.studentDao = studentDao;
         this.marksDao = marksDao;
