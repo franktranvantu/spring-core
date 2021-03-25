@@ -21,7 +21,6 @@ public class Application {
     System.out.println("Select all students:");
     studentDao.selectAllStudents().stream().forEach(System.out::println);
 
-
     Student henry = studentDao.selectStudentByName("Henry");
     henry.setAge(40);
     studentDao.updateStudent(henry);
@@ -32,6 +31,5 @@ public class Application {
     studentDao.deleteStudent(bean.getId());
     System.out.println("Delete student bean:");
     studentDao.selectAllStudents().stream().forEach(System.out::println);
-
   }
 }
