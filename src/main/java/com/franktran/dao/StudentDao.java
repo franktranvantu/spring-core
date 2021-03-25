@@ -40,7 +40,7 @@ public class StudentDao {
     }
 
     public int[] insertStudents(List<Student> students) {
-        String sql = "INSERT INTO student (student_id, name, age) VALUES (?, ?)";
+        String sql = "INSERT INTO student (student_id, name, age) VALUES (?, ?, ?)";
         List<Object[]> params = new ArrayList<>();
         students.stream().forEach(student -> params.add(new Object[]{student.getId(), student.getName(), student.getAge()}));
         return jdbcTemplate.batchUpdate(sql, params);
