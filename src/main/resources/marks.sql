@@ -1,4 +1,4 @@
-DROP TABLE IF NOT EXISTS marks;
+DROP TABLE IF EXISTS marks;
 
 CREATE TABLE marks(
    student_id INT NOT NULL,

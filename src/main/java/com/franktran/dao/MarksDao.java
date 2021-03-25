@@ -34,7 +34,7 @@ public class MarksDao {
     }
 
     public int insertMarks(Marks marks) {
-        String sql = "INSERT INTO marks (student_id, name, age) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO marks (student_id, marks, years) VALUES (?, ?, ?)";
         return jdbcTemplate.update(sql, new Object[]{marks.getStudentId(), marks.getMarks(), marks.getYears()});
     }
 
