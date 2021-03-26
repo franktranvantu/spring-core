@@ -18,7 +18,7 @@ public class DataSourceConfig {
 
   public DataSourceConfig(
           @Value("${host}") String host,
-          @Value("${username}") String username,
+          @Value("${user}") String username,
           @Value("${password}") String password) {
     this.host = host;
     this.username = username;

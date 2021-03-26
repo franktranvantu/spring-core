@@ -24,7 +24,7 @@ public class UserDao {
     }
 
     public int save(User user) {
-        String sql = "INSERT INTO user (id, name, age) VALUES (?, ?, ?)";
-        return jdbcTemplate.update(sql, new Object[]{user.getId(), user.getName(), user.getEmail()});
+        String sql = "INSERT INTO user (name, email) VALUES (?, ?)";
+        return jdbcTemplate.update(sql, new Object[]{user.getName(), user.getEmail()});
     }
 }

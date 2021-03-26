@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import java.util.Locale;
-
 @Controller
 public class UserController {
 
@@ -23,7 +21,7 @@ public class UserController {
     @GetMapping("/")
     public String userForm(Model model) {
         model.addAttribute("users", userService.list());
-        return "editUsers";
+        return "users";
     }
 
     @ModelAttribute("user")
@@ -37,7 +35,20 @@ public class UserController {
 
         if (result.hasErrors()) {
             model.addAttribute("users", userService.list());
-            return "editUsers";
+            return "users";
+        }
+
+        userService.save(user);
+        return "redirect:/";
+    }
+
+    @PostMapping("/editUser")
+    public String editUser(@ModelAttribute("user") User user,
+                           BindingResult result, Model model) {
+
+        if (result.hasErrors()) {
+            model.addAttribute("users", userService.list());
+            return "users";
         }
 
         userService.save(user);
