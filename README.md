@@ -1,2 +1,1 @@
-# Logging
-This is a very easy-to-use Log4J functionality inside Spring applications. The following example will take you through simple steps to explain the simple integration between Log4J and Spring.
+# Security
