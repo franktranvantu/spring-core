@@ -12,14 +12,17 @@ import javax.sql.DataSource;
 @PropertySource("classpath:datasource.properties")
 public class DataSourceConfig {
 
+  private final String driver;
   private final String host;
   private final String username;
   private final String password;
 
   public DataSourceConfig(
-          @Value("${host}") String host,
-          @Value("${user}") String username,
-          @Value("${password}") String password) {
+      @Value("${driver}") String driver,
+      @Value("${host}") String host,
+      @Value("${username}") String username,
+      @Value("${password}") String password) {
+    this.driver = driver;
     this.host = host;
     this.username = username;
     this.password = password;
@@ -29,6 +32,7 @@ public class DataSourceConfig {
   public DataSource dataSource() {
     String URL = String.format("jdbc:mysql://%s:3306/spring_core", host);
     BasicDataSource dataSource = new BasicDataSource();
+    dataSource.setDriverClassName(driver);
     dataSource.setUrl(URL);
     dataSource.setUsername(username);
     dataSource.setPassword(password);
