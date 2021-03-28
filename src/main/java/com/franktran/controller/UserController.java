@@ -64,14 +64,14 @@ public class UserController {
     }
 
     @GetMapping("/second")
-    public String second(Model model, SessionStatus status) {
+    public String second(Model model) {
         model.addAttribute("next", "third");
-        status.setComplete();
         return "users";
     }
 
     @GetMapping("/third")
-    public String third() {
+    public String third(Model model) {
+        model.addAttribute("next", "normal");
         return "users";
     }
 }
