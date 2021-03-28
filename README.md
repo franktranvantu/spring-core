@@ -1,1 +1,4 @@
 # Bean Scopes
+
+- Singleton
+- Prototype
