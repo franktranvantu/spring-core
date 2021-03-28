@@ -10,10 +10,7 @@ public class NormalController {
 
   @GetMapping("/normal")
   public String normal(HttpSession session) {
-    String username = (String) session.getAttribute("username");
-    String password = (String) session.getAttribute("password");
-    System.out.println(username);
-    System.out.println(password);
+    session.invalidate();
     return "users";
   }
 }

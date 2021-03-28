@@ -22,6 +22,7 @@
 </head>
 <body>
     <h1>Hello ${username}</h1>
+    <h1>Your password ${password}</h1>
 
     <h2>Users List</h2>
     <table>

@@ -73,10 +73,9 @@ public class UserController {
     }
 
     @GetMapping("/third")
-    public String third(Model model, SessionStatus status, HttpSession session) {
+    public String third(Model model, SessionStatus status) {
         model.addAttribute("next", "normal");
         status.setComplete();
-        session.invalidate();
         return "users";
     }
 }
