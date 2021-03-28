@@ -4,3 +4,5 @@
 - Prototype
 - Request
 - Session
+- Application
+- WebSocket
