@@ -6,9 +6,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 @Controller
 @ControllerAdvice(assignableTypes = ModelAttributeController.class)
+@SessionAttributes("website")
 public class MyWebsiteController {
 
   @ModelAttribute("website")
@@ -19,13 +21,12 @@ public class MyWebsiteController {
   }
 
   @GetMapping("/show-website-info")
-  public String showWebsiteInfo(Model model) {
+  public String showWebsiteInfo(@ModelAttribute("website") MyWebsite website) {
     return "my-website";
   }
 
   @GetMapping("/show-company-info")
   public String showCompanyInfo(@ModelAttribute("website") MyWebsite myWebsite) {
-    System.out.println(myWebsite.hashCode());
     return "my-website";
   }
 }
