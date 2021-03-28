@@ -1,8 +1,12 @@
-package com.franktran.config;
+package com.franktran.initializer;
 
+import com.franktran.config.DataSourceConfig;
+import com.franktran.config.JdbcConfig;
+import com.franktran.config.TransactionConfig;
+import com.franktran.config.WebMvcConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-public class AppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
+public class WebMvcInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
     @Override
     protected Class<?>[] getRootConfigClasses() {
