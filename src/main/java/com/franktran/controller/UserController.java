@@ -9,11 +9,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 
 import javax.servlet.http.HttpServletRequest;
 
 @Controller
-@SessionAttributes("username")
+@SessionAttributes({"username", "users"})
 public class UserController {
 
     private final UserService userService;
@@ -25,13 +26,9 @@ public class UserController {
     @GetMapping("/")
     public String userForm(HttpServletRequest request, Model model) {
         model.addAttribute("username", request.getUserPrincipal().getName());
+        model.addAttribute("next", "first");
         model.addAttribute("users", userService.list());
         return "users";
-    }
-
-    @ModelAttribute("user")
-    public User formBackingObject() {
-        return new User();
     }
 
     @PostMapping("/addUser")
@@ -60,9 +57,21 @@ public class UserController {
         return "redirect:/";
     }
 
-    @GetMapping("/next")
-    public String next(Model model) {
-        model.addAttribute("password", "frank123");
-        return "next";
+    @GetMapping("/first")
+    public String first(Model model) {
+        model.addAttribute("next", "second");
+        return "users";
+    }
+
+    @GetMapping("/second")
+    public String second(Model model, SessionStatus status) {
+        model.addAttribute("next", "third");
+        status.setComplete();
+        return "users";
+    }
+
+    @GetMapping("/third")
+    public String third() {
+        return "users";
     }
 }
