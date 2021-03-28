@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @Controller
 @SessionAttributes({"username", "users"})
@@ -25,6 +26,8 @@ public class UserController {
 
     @GetMapping("/")
     public String userForm(HttpServletRequest request, Model model) {
+        HttpSession session = request.getSession();
+        session.setAttribute("password", "frank123");
         model.addAttribute("username", request.getUserPrincipal().getName());
         model.addAttribute("next", "first");
         model.addAttribute("users", userService.list());
@@ -70,8 +73,9 @@ public class UserController {
     }
 
     @GetMapping("/third")
-    public String third(Model model) {
+    public String third(Model model, SessionStatus status) {
         model.addAttribute("next", "normal");
+        status.setComplete();
         return "users";
     }
 }

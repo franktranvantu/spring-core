@@ -1,16 +1,19 @@
 package com.franktran.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.SessionAttribute;
+
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class NormalController {
 
   @GetMapping("/normal")
-  public String normal(@SessionAttribute("username") String username, Model model) {
+  public String normal(HttpSession session) {
+    String username = (String) session.getAttribute("username");
+    String password = (String) session.getAttribute("password");
     System.out.println(username);
+    System.out.println(password);
     return "users";
   }
 }
