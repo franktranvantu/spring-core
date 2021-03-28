@@ -61,9 +61,7 @@ public class UserController {
     }
 
     @GetMapping("/next")
-    public String next(Model model) {
-        String username = (String) model.getAttribute("username");
-        System.out.println(username);
-        return "redirect:/";
+    public String next() {
+        return "next";
     }
 }
