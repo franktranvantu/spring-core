@@ -9,7 +9,7 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
 public class WebMvcInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
     @Override
-    protected Class<?>[] getRootConfigClasses() {
+    protected Class<?>[] getRootConfigClasses()  {
         return new Class[] { DataSourceConfig.class, JdbcConfig.class, TransactionConfig.class };
     }
 
