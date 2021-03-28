@@ -38,6 +38,9 @@
         </c:forEach>
     </table>
     <br>
-    <a href="${contextPath}/${next}">Next / ${next}</a>
+    <a href="${contextPath}/${next}">Next / ${next}</a><br>
+    <a href="${contextPath}/show-website-info">Show Website Info</a><br>
+    <a href="${contextPath}/show-company-info">Show Company Info</a><br>
+    <a href="${contextPath}/test">Test</a><br>
 </body>
 </html>
