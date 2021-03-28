@@ -23,7 +23,7 @@ public class UserController {
     }
 
     @GetMapping("/")
-    public String userForm(HttpServletRequest request,Model model) {
+    public String userForm(HttpServletRequest request, Model model) {
         model.addAttribute("username", request.getUserPrincipal().getName());
         model.addAttribute("users", userService.list());
         return "users";
@@ -61,7 +61,8 @@ public class UserController {
     }
 
     @GetMapping("/next")
-    public String next() {
+    public String next(Model model) {
+        model.addAttribute("password", "frank123");
         return "next";
     }
 }

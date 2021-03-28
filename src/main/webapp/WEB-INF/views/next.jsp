@@ -9,6 +9,7 @@
     <title>Next</title>
 </head>
 <body>
-    <h1>Hi ${username}</h1>
+    <h1>User fetching from request: ${requestScope.password}</h1>
+    <h1>User fetching from session: ${sessionScope.password}</h1>
 </body>
 </html>
