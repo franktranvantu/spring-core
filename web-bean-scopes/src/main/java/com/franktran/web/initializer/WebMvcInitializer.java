@@ -1,5 +1,6 @@
 package com.franktran.web.initializer;
 
+import com.franktran.web.config.WebMvcConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class WebMvcInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
@@ -11,11 +12,11 @@ public class WebMvcInitializer extends AbstractAnnotationConfigDispatcherServlet
 
   @Override
   protected Class<?>[] getServletConfigClasses() {
-    return new Class[0];
+    return new Class[] { WebMvcConfig.class };
   }
 
   @Override
   protected String[] getServletMappings() {
-    return new String[0];
+    return new String[] { "/" };
   }
 }
