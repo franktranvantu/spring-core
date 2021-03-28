@@ -22,9 +22,4 @@ public class WebMvcConfig implements WebMvcConfigurer {
         resolver.setSuffix(".jsp");
         return resolver;
     }
-
-    @Override
-    public Validator getValidator() {
-        return null;
-    }
 }
