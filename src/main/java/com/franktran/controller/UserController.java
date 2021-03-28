@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.servlet.http.HttpServletRequest;
+
 @Controller
 public class UserController {
 
@@ -19,7 +21,8 @@ public class UserController {
     }
 
     @GetMapping("/")
-    public String userForm(Model model) {
+    public String userForm(HttpServletRequest request,Model model) {
+        model.addAttribute("username", request.getUserPrincipal().getName());
         model.addAttribute("users", userService.list());
         return "users";
     }
