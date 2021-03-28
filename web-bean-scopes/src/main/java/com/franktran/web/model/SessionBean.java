@@ -1,6 +1,15 @@
 package com.franktran.web.model;
 
-public class MyBean {
+import org.springframework.stereotype.Component;
+import org.springframework.web.context.annotation.SessionScope;
+
+@Component
+@SessionScope
+public class SessionBean {
+
+  public SessionBean() {
+    System.out.println("SessionBean()");
+  }
 
   private String websiteName = "franktran.com";
 

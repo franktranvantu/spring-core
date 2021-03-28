@@ -2,3 +2,5 @@
 
 - Singleton
 - Prototype
+- Request
+- Session
