@@ -1,7 +1,7 @@
-package com.franktran.dao;
+package com.franktran.mvc.dao;
 
-import com.franktran.mapper.UserMapper;
-import com.franktran.model.User;
+import com.franktran.mvc.mapper.UserMapper;
+import com.franktran.mvc.model.User;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 

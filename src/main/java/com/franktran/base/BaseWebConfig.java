@@ -1,4 +1,4 @@
-package com.franktran.config;
+package com.franktran.base;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -9,7 +9,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackageClasses = BaseWebConfig.class)
+@ComponentScan(basePackageClasses = BaseController.class)
 public class BaseWebConfig {
 
     @Bean

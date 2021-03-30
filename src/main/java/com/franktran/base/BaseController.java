@@ -1,4 +1,4 @@
-package com.franktran.controller;
+package com.franktran.base;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

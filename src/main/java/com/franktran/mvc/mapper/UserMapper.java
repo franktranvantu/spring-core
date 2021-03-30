@@ -1,6 +1,6 @@
-package com.franktran.mapper;
+package com.franktran.mvc.mapper;
 
-import com.franktran.model.User;
+import com.franktran.mvc.model.User;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 

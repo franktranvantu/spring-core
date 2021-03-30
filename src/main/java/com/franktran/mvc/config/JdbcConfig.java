@@ -1,4 +1,4 @@
-package com.franktran.config;
+package com.franktran.mvc.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
