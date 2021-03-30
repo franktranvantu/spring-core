@@ -1,7 +1,13 @@
 package com.franktran.lc;
 
+import org.hibernate.validator.constraints.NotBlank;
+
+import javax.validation.constraints.Size;
+
 public class UserInfoDTO {
 
+    @NotBlank(message = "Name cannot be blank")
+    @Size(min = 3, max = 15, message = "Name must be between 3-15 characters")
     private String name = "Frank";
     private String crushName = "Franky";
 
