@@ -1,6 +1,7 @@
 package com.franktran.dao;
 
-import com.franktran.mapper.StudentMapper;
+import com.franktran.mapper.StudentResultSetExtractor;
+import com.franktran.mapper.StudentRowMapper;
 import com.franktran.model.Student;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
@@ -12,11 +13,13 @@ import java.util.List;
 public class StudentDao {
 
     private final JdbcTemplate jdbcTemplate;
-    private final StudentMapper studentMapper;
+    private final StudentRowMapper studentRowMapper;
+    private final StudentResultSetExtractor studentResultSetExtractor;
 
-    public StudentDao(JdbcTemplate jdbcTemplate, StudentMapper studentMapper) {
+    public StudentDao(JdbcTemplate jdbcTemplate, StudentRowMapper studentRowMapper, StudentResultSetExtractor studentResultSetExtractor) {
         this.jdbcTemplate = jdbcTemplate;
-        this.studentMapper = studentMapper;
+        this.studentRowMapper = studentRowMapper;
+        this.studentResultSetExtractor = studentResultSetExtractor;
     }
 
     public void dropTableStudent() {
@@ -57,11 +60,11 @@ public class StudentDao {
     }
 
     public List<Student> selectAllStudents() {
-        return jdbcTemplate.query("SELECT * FROM student", studentMapper);
+        return jdbcTemplate.query("SELECT * FROM student", studentResultSetExtractor);
     }
 
     public Student selectStudentByName(String name) {
         String sql = "SELECT * FROM student WHERE name = ?";
-        return jdbcTemplate.queryForObject(sql, new Object[]{name}, studentMapper);
+        return jdbcTemplate.queryForObject(sql, new Object[]{name}, studentRowMapper);
     }
 }
