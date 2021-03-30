@@ -21,7 +21,7 @@ public class UserController {
     @GetMapping("/")
     public String userForm(Model model) {
         model.addAttribute("users", userService.list());
-        return "users";
+        return "mvc/users";
     }
 
     @ModelAttribute("user")
@@ -35,7 +35,7 @@ public class UserController {
 
         if (result.hasErrors()) {
             model.addAttribute("users", userService.list());
-            return "users";
+            return "mvc/users";
         }
 
         userService.save(user);
@@ -48,7 +48,7 @@ public class UserController {
 
         if (result.hasErrors()) {
             model.addAttribute("users", userService.list());
-            return "users";
+            return "mvc/users";
         }
 
         userService.save(user);

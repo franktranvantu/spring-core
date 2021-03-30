@@ -16,7 +16,7 @@ public class LCWebConfig {
     public InternalResourceViewResolver viewResolver() {
         InternalResourceViewResolver resolver = new InternalResourceViewResolver();
         resolver.setViewClass(JstlView.class);
-        resolver.setPrefix("/WEB-INF/views/");
+        resolver.setPrefix("/WEB-INF/views/lc/");
         resolver.setSuffix(".jsp");
         return resolver;
     }
