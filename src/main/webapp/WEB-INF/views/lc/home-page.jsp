@@ -22,6 +22,14 @@
             <p>
                 <label for="crushName">Crush name:</label>
                 <form:input path="crushName" id="crushName" />
+                <br>
+                <form:errors path="crushName" cssClass="error" />
+            </p>
+            <p>
+                <form:checkbox path="termAndCondition" id="check" />
+                <label for="check">I am agreeing that this is for fun</label>
+                <br>
+                <form:errors path="termAndCondition" cssClass="error" />
             </p>
             <button type="submit">Calculate</button>
         </div>
