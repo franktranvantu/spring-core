@@ -19,5 +19,8 @@
         </ul>
     </p>
     <p>Gender: ${userRegistration.gender}</p>
+    <p>Age: ${userRegistration.age}</p>
+    <p>Email: ${userRegistration.communicationDTO.email}</p>
+    <p>Phone: ${userRegistration.communicationDTO.phoneDTO}</p>
 </body>
 </html>
