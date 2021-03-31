@@ -1,4 +1,4 @@
-package com.franktran.model;
+package com.franktran.mvc.model;
 
 public class User {
 

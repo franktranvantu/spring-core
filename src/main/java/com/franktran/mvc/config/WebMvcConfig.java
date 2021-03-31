@@ -1,24 +1,22 @@
-package com.franktran.config;
+package com.franktran.mvc.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.validation.Validator;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "com.franktran")
-public class WebMvcConfig implements WebMvcConfigurer {
+@ComponentScan(basePackages = "com.franktran.mvc")
+public class WebMvcConfig {
 
     @Bean
-    public InternalResourceViewResolver resolver() {
+    public InternalResourceViewResolver viewResolver() {
         InternalResourceViewResolver resolver = new InternalResourceViewResolver();
         resolver.setViewClass(JstlView.class);
-        resolver.setPrefix("/WEB-INF/views/");
+        resolver.setPrefix("/WEB-INF/views/mvc/");
         resolver.setSuffix(".jsp");
         return resolver;
     }

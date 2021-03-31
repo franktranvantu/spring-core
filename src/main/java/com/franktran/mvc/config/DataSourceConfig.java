@@ -1,4 +1,4 @@
-package com.franktran.config;
+package com.franktran.mvc.config;
 
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.beans.factory.annotation.Value;

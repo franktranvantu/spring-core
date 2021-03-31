@@ -1,7 +1,7 @@
-package com.franktran.service;
+package com.franktran.mvc.service;
 
-import com.franktran.dao.UserDao;
-import com.franktran.model.User;
+import com.franktran.mvc.dao.UserDao;
+import com.franktran.mvc.model.User;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

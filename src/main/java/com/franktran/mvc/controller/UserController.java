@@ -1,7 +1,7 @@
-package com.franktran.controller;
+package com.franktran.mvc.controller;
 
-import com.franktran.model.User;
-import com.franktran.service.UserService;
+import com.franktran.mvc.model.User;
+import com.franktran.mvc.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -21,7 +21,7 @@ public class UserController {
     @GetMapping("/")
     public String userForm(Model model) {
         model.addAttribute("users", userService.list());
-        return "users";
+        return "mvc/users";
     }
 
     @ModelAttribute("user")
@@ -35,7 +35,7 @@ public class UserController {
 
         if (result.hasErrors()) {
             model.addAttribute("users", userService.list());
-            return "users";
+            return "mvc/users";
         }
 
         userService.save(user);
@@ -48,7 +48,7 @@ public class UserController {
 
         if (result.hasErrors()) {
             model.addAttribute("users", userService.list());
-            return "users";
+            return "mvc/users";
         }
 
         userService.save(user);
