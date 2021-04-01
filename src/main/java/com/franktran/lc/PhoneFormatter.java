@@ -12,6 +12,9 @@ public class PhoneFormatter implements Formatter<PhoneDTO> {
     @Override
     public PhoneDTO parse(String text, Locale locale) throws ParseException {
         String[] phoneParts = text.split("-");
+        if (text.indexOf("-") == -1) {
+            return new PhoneDTO("+84", phoneParts[0]);
+        }
         return new PhoneDTO(phoneParts[0], phoneParts[1]);
     }
 
