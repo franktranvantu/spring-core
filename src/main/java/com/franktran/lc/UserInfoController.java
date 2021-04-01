@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import javax.validation.Valid;
 
 @Controller
-public class LCController {
+public class UserInfoController {
 
     @GetMapping
     public String showHomePage(@ModelAttribute("userInfo") UserInfoDTO userInfo) {

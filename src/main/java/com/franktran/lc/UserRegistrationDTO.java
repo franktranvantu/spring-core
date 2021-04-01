@@ -8,6 +8,7 @@ public class UserRegistrationDTO {
     private String countryName;
     private String[] hobbies;
     private String gender;
+    @Age(lower = 20, upper = 75)
     private int age;
     private CommunicationDTO communicationDTO;
 

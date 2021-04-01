@@ -3,6 +3,11 @@
 <html>
 <head>
     <title>Registration Page</title>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
 </head>
 <body>
 <form:form action="process-registration" method="post" modelAttribute="userRegistration">
@@ -42,6 +47,8 @@
         <p>
             <label for="age">Age:</label>
             <form:input path="age" id="age"/>
+            <br>
+            <form:errors path="age" cssClass="error" />
         </p>
         <hr>
         <h3>Communication</h3>
