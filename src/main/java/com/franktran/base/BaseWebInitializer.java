@@ -17,6 +17,6 @@ public class BaseWebInitializer implements WebApplicationInitializer {
         DispatcherServlet dispatcherServlet = new DispatcherServlet(webApplicationContext);
         ServletRegistration.Dynamic servletRegistration = servletContext.addServlet("baseWebServlet", dispatcherServlet);
         servletRegistration.setLoadOnStartup(1);
-        servletRegistration.addMapping("/baseweb/*");
+        servletRegistration.addMapping("/base/*");
     }
 }
